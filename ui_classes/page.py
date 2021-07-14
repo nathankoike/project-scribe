@@ -1,42 +1,11 @@
 import numpy
-from PIL import Image, ImageDraw
-from PyQt5 import QtCore, QtGui, QtWidgets
 import os
 import glob
 import copy
-from HandwritingRecognitionSystem_v2 import test, config
-
-
-class Line():
-    def __init__(self, polygon, points, og_pixmap_w, og_pixmap_h, og_pts=None):
-        self._original_pixmap_w_h = (og_pixmap_w, og_pixmap_h)
-        self._polygon = polygon
-        self._image_name = None
-        self._vertices = points
-
-        if og_pts != None:
-            self._original_vertices = copy.deepcopy(og_pts)
-        else:
-            self._original_vertices = copy.deepcopy(points)
-
-        self._vertex_handles = None
-        self._block_number = None
-        self._transcription = ""
-        self._is_transcribed = False
-        self._ready_for_training = False
-
-    def set_transcription(self, transcription):
-        self._transcription = transcription
-
-    def updatePolygon(self):
-        self._polygon = QtGui.QPolygon()
-        for vertex in self._vertices:
-            point = QtCore.QPoint(vertex[0],vertex[1])
-            self._polygon << point
-
-    def set_block_number(self, number):
-        """ Sets the index of the polygon/text """
-        self._block_number = number
+from PIL import Image
+from PyQt5 import QtCore, QtGui
+from HandwritingRecognitionSystem_v2 import test
+from ui_classes.polygon import Polygon
 
 
 class Page:
@@ -187,7 +156,7 @@ class Page:
 
     def addPolygon(self, poly, points):
         """ adds self._polygon to the page"""
-        line_object = Line(poly, points, self._pixmap_rect.size().width(), self._pixmap_rect.size().height())
+        line_object = Polygon(poly, points, self._pixmap_rect.size().width(), self._pixmap_rect.size().height())
         self._page_lines.append(line_object)
         self.sortLines()
 
