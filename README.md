@@ -14,9 +14,9 @@ crashed" is perfect. Thanks for taking the time to read this and for taking a
 look at this project!
 
 ### Installation
-Please download and extract this project to anywhere you can easily access.
+Please clone this project to anywhere you can easily access.
 Next, please open your command line (this would be Terminal on MacOS, Command
-Prompt on Windows, and something like Konsole on a Linux distro) and navigate to
+Prompt or Powershell on Windows, and something like Konsole on a Linux distro) and navigate to
 the directory containing the extracted project. Make sure you are in the
 directory containing this readme file. Making sure that Python 3.8 or higher is
 installed, and that you have PIP, run the following command:
@@ -30,7 +30,7 @@ If that doesn't work, please run this command instead:
 ### Launching the Application
 With your command line still open from installation run the following command:
 
-`python ui.py`
+`python main.py`
 
 To run the program in the future, please use the command line again. This
 entails using the command line go into the same directory from the installation
@@ -65,8 +65,8 @@ Finally, you can export your transcriptions as either a PDF or a txt file.
 If you would like to use this project in your own work, please fork from this
 project.
 
-For our part, we are citing the following paper for its researchers improvements
-to OCR and their implementation in Python 2.7.
+For our part, we are citing the following paper for its researchers' improvements
+to OCR/HTR and their implementation in Python 2.7.
 
 ```
 @inproceedings{chammas2018handwriting,
